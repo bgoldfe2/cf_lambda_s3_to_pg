@@ -29,20 +29,7 @@ def lambda_handler(event, context):
     
     resp = {'status': False, 'TotalItems': {} , 'Items': [] }
     
-    #if event:
-    #file_obj = event["Records"][0]
-    #bucketname = str(file_obj['s3']['bucket']['name'])
-    #filename = str(file_obj['s3']['object']['key'])
-    #print("Filename: ", filename)
-    #fileObj = s3.get_object(Bucket=bucketname, Key=filename)
-    #file_content = fileObj["Body"].read().decode('utf-8')
-    #json_conf = fileObj['Body'].read().decode('utf-8')
-    #print(json_conf)
-        
-    #bucket = event['Records'][0][s3]['bucket']['name']
     
-    # Read in the database configuration in file could be encrypted in s3
-    # Need to put in the code to read from the s3 bucket later 
     if 'Records' not in event:
         resp = {'status': False, "error_message" : 'No Records found in Event' }
         return resp
@@ -55,6 +42,8 @@ def lambda_handler(event, context):
         d['object_owner']   = r['userIdentity']['principalId']
         d['bucket_name']    = r['s3']['bucket']['name']
         d['key']            = r['s3']['object']['key']
+        # Read in the database configuration in file could be encrypted in s3
+        # Need to put in the code to read from the s3 bucket later 
         if d['key'] == g_conf_name:
             obj = s3.get_object(Bucket=d['bucket_name'], Key=d['key'])
             #file_content = obj["Body"].read().decode('utf-8')
