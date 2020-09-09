@@ -4,7 +4,7 @@ Description: AWS Lambda to process new S3 Objects
 Parameters:
   debugMODE:
     Description: Do you want to enable logging.
-    Default: 'True'
+    Default: 'False'
     Type: String
     AllowedValues:
     - 'True'
@@ -31,7 +31,7 @@ Resources:
       FunctionName:
         Fn::Sub: EventProcessor-${FunctionNameSuffix}
       Handler: serverless-s3-event-processor.lambda_handler
-      CodeUri: s3://bruceg-testbucket-for-s3/adf9f0a4ee2dcabe55bcd260d50132c0
+      CodeUri: s3://bruceg-testbucket-for-s3/dd700a504c8b5e1c08467c5678567b9b
       Events:
         EventTrigger1:
           Type: S3

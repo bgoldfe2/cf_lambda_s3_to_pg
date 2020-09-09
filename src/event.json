@@ -27,7 +27,7 @@
           "arn": "arn:aws:s3:::serverless-s3-event-processor-eventbucket-fdfdcywtzw3w"
         },
         "object": {
-          "key": "test-object-mystique.py",
+          "key": "test-object-DensityDash.py",
           "size": 2007,
           "eTag": "0572bc4f7cdf589370a4057b86d618da",
           "sequencer": "005CD2BCF351A92592"

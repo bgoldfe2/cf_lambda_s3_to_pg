@@ -1,12 +1,12 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 
-Description: AWS Lambda to process new S3 Objects
+Description: 'AWS Lambda to process new S3 Objects'
 
 Parameters:
   debugMODE:
     Description: Do you want to enable logging.
-    Default: "False"
+    Default: "True"
     Type: String
     AllowedValues: ["True", "False"]
     ConstraintDescription: Must be boolean.

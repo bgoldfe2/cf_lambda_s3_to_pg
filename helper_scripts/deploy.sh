@@ -19,6 +19,9 @@ PACKAGED_OUTPUT_TEMPLATE="${OUTPUT_DIR}${STACK_NAME}-packaged-template.yaml"
     # Cleanup Output directory
 rm -rf "${OUTPUT_DIR}"*
 
+# Copy the template from output to src
+#cp ./outputs/serverless-s3-event-processor-packaged-template.yaml ./src/
+
 echo -n "Stack Packing Initiated"
 aws cloudformation package \
     --template-file "${TEMPLATE_NAME}" \
