@@ -1,3 +1,4 @@
+# README from the dude's code I am extending
 # AWS S3 Real Time Event Processor
 
 Lets say, we have to do some action for every object uploaded / added to S3 Bucket. We can use _DynamoDB Streams_ along with Lambda to achieve the same.
