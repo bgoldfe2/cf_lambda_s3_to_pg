@@ -47,10 +47,20 @@ def lambda_handler(event, context):
         if d['key'] == g_conf_name:
             obj = s3.get_object(Bucket=d['bucket_name'], Key=d['key'])
             #file_content = obj["Body"].read().decode('utf-8')
-            json_conf = obj['Body'].read().decode('utf-8')
-            #logger.info(file_content)
-            logger.info("Wow, did not think I woud get this far")
+            #json_conf = obj['Body'].read().decode('utf-8')
+            
+
+            json_conf = obj['Body'].read().decode('utf-8','ignore')
             logger.info(json_conf)
+            #logger.info("json_conf type ",type(json_conf))
+
+            db_dict = json.loads(json_conf)
+            #logger.info("db_dict type ",type(db_dict))
+            # Log output from db_config.json file in S3 bucket
+            logger.info(json_conf)
+            for key, value in db_dict.items():
+                foo = ""+key+ '->'+ value
+                logger.info(foo)
         resp['Items'].append(d)
 
     if resp.get('Items'):
